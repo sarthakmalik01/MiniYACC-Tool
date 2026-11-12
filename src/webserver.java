@@ -29,6 +29,22 @@ public class webserver {
 }
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Working Directory: "
+        + System.getProperty("user.dir"));
+
+System.out.println("Web Root: " + WEB_ROOT);
+
+System.out.println("Web Folder Exists: "
+        + Files.exists(WEB_ROOT));
+
+System.out.println("Index Exists: "
+        + Files.exists(WEB_ROOT.resolve("index.html")));
+
+if (Files.exists(WEB_ROOT)) {
+    try (var files = Files.list(WEB_ROOT)) {
+        files.forEach(System.out::println);
+    }
+}
 
         HttpServer server = HttpServer.create(
         new InetSocketAddress("0.0.0.0", PORT), 0
