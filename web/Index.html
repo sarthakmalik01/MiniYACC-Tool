@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mini YACC | SLR Parser Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">MINI <span>YACC</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#grammar">Grammar</a>
+            <a href="#results">Results</a>
+        </nav>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Server Connected
+        </div>
+    </header>
+
+    <main id="home">
+
+        <section class="hero">
+            <p class="eyebrow">COMPILER DESIGN PROJECT</p>
+
+            <h1>SLR(1) Parser Generator</h1>
+
+            <p>
+                Generate FIRST and FOLLOW sets, LR(0) item sets,
+                SLR parsing tables and parse input strings.
+            </p>
+        </section>
+
+        <section class="workspace" id="grammar">
+
+            <div class="section-heading">
+                <h2>Grammar Configuration</h2>
+                <p>Define your context-free grammar below.</p>
+            </div>
+
+            <div class="input-card">
+
+                <label for="grammarInput">
+                    Production Rules
+                </label>
+
+                <textarea
+                    id="grammarInput"
+                    placeholder="E -> T E'&#10;E' -> + T E'&#10;E' -> eps&#10;T -> id"
+                ></textarea>
+
+                <p class="hint">
+                    Enter one production per line. Use eps for epsilon.
+                </p>
+
+                <label for="startSymbol">
+                    Start Symbol
+                </label>
+
+                <input
+                    type="text"
+                    id="startSymbol"
+                    placeholder="Example: E"
+                >
+
+                <label for="inputString">
+                    Input String
+                </label>
+
+                <input
+                    type="text"
+                    id="inputString"
+                    placeholder="Example: id + id"
+                >
+
+                <button id="analyzeBtn">
+                    Analyze Grammar
+                </button>
+
+                <button id="parseBtn" class="secondary-btn">
+                    Parse Input
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="results" class="results">
+
+            <div class="section-heading">
+                <h2>Analysis Results</h2>
+                <p>Your generated compiler-design results will appear here.</p>
+            </div>
+
+            <div class="result-card">
+                <h3>FIRST and FOLLOW</h3>
+                <pre id="firstFollowResult">Waiting for grammar analysis...</pre>
+            </div>
+
+            <div class="result-card">
+                <h3>LR(0) Item Sets</h3>
+                <pre id="lr0Result">No states generated yet.</pre>
+            </div>
+
+            <div class="result-card">
+                <h3>SLR Parsing Table</h3>
+                <pre id="slrResult">No parsing table generated yet.</pre>
+            </div>
+
+            <div class="result-card">
+                <h3>Parsing Result</h3>
+                <pre id="parseResult">No input parsed yet.</pre>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Mini YACC | SLR(1) Parser Generator
+        <br>
+        Compiler Design Project
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
